@@ -1,4 +1,4 @@
-# erstimme-btw2017
+# erststimme2017.de
 Vorhersageprojekt für die Erstimmenergebnisse der Bundestagswahl 2017
 
 
