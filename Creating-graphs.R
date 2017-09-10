@@ -1,7 +1,5 @@
-setwd("//Users/cornelius/erststimme2017.de/R")
 
 ### Creating graphs
-### a.k.a. Visualisazion
 
 library(shapefiles)
 library(rgdal)
@@ -41,7 +39,7 @@ slot(shape, "polygons")[[18]] <- hhs18
 
 
 # Reading in forecast data for colors
-load("Roman/data/btw17_forecast.RData")
+load("data/btw17_forecast.RData")
 
 color_subset <- btw2017[btw2017$rank == 1, ]
 head(color_subset)
@@ -353,112 +351,3 @@ load("prediction_c.RData")
 
 
 
-
-
-
-
-#####################
-# Centroids
-
-centroidsWKR <- coordinates(shape)
-
-sel <- shape$LAND_NAME == k
-plot(shape[sel, ], col = "lightgrey", lwd = 0.5, border="white")
-for (i in shape$WKR_NR[sel]){
-  plot(shape[shape$WKR_NR == i, ], col = shape$color[shape$WKR_NR == i], add = TRUE, lwd = .5, border="white")
-}
-
-
-
-sel <- shape$LAND_NAME == "Baden-Württemberg"
-plot(shape[sel, ], col = "lightgrey", lwd = 0.5, border="white")
-for (i in shape$WKR_NR[sel]){
-  plot(shape[shape$WKR_NR == i, ], col = sample(c("black", "red"),1), add = TRUE, lwd = .5, border="white")
-    text(x=centroidsWKR[1, ], y=centroidsWKR[ , 1], col = "white", labels=shape$WKR_NR)
-  
-}
-
-
-test <- NA
-
-
-
-sel <- shape$LAND_NAME == "Baden-Württemberg"
-#plot(shape[sel, ], col = "lightgrey", lwd = 0.5, border="white")
-ggplot()+
-for (i in shape$WKR_NR[sel]){
-  geom_polygon(data=shape[i], aes(lat=lat, long=long))
-  plot(shape[shape$WKR_NR == i, ], col = sample(c("black", "red"),1), add = TRUE, lwd = .5, border="white")
-  text(x=centroidsWKR[1, ], y=centroidsWKR[ , 1], col = "white", labels=shape$WKR_NR)
-  
-}
-
-ggplot(shape[shape$LAND_NAME== "Baden-Württemberg", ])+
-  aes(long,lat,group=group) +
-  geom_polygon(fill=sample(c("black", "red"), 1), color="red", size=2, border="white")+
-  geom_text()
-
-
-
-
-
-
-
-
-
-
-
-# TEST
-
-png(filename = paste0( "TEST", ".png"), width = 1800, height = 1300)   
- 
-sel <- shape$LAND_NAME == "Baden-Württemberg"
-raster::plot(shape[sel, ], col = "lightgrey", lwd = 1)
-for (i in shape$WKR_NR[sel]){
-  raster::plot(shape[shape$WKR_NR == i, ], col = sample(c("red", "black"),1), add = TRUE, lwd = 1, border="white")
-}
-dev.off()
-
-coordinates(shape, obj = "list") -> test
-
-test <- fortify(shape)
-
-View(raster)
-
-projection(shape)
-
-longs <- list(reorder(test$long[test$id==0], test$order[test$id==0]))
-lats <- list(reorder(test$lat[test$id==0], test$order[test$id==0]))
-
-raster <- raster(shape)
-
-rasterToPolygons(test)
-
-
-
-
-png(filename = "test.png", width = 1000, height = 500, bg = "white", res = 20) #18bc9c
-
-
-ggplot(btw2017[btw2017$wkr_nr2017 == 1 & btw2017$party != "CSU", ], aes(x=reorder(party, -num), y=.fitted, color="white", fill=party))+
-    geom_bar(stat='identity', width=.5, size=5)+
-    coord_flip()+
-    theme(axis.line.y=element_line(color="black", size=5), axis.text.x=element_text(size=10, face = "plain"),
-          axis.text.y=element_text(size=80, color="black", family="Helvetica Neue", face="plain"), axis.ticks=element_blank(),
-          axis.title.x=element_blank(),
-          axis.title.y=element_blank(),legend.position="none",
-          panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),
-          panel.grid.minor=element_blank(),plot.background=element_rect(fill = "white"))+
-    scale_color_manual(values="white")+
-    scale_fill_manual(values=c("black", "yellow", "green", "purple", "red"))+
-    geom_text(nudge_y = 3 , angle = 0, aes(x = party, y = .fitted, label = paste0(.fitted, " %")), size=25, color = "black")+
-    scale_y_continuous(limits=c(0, (btw2017$.fitted[btw2017$wkr_nr2017 == 1 & btw2017$rank == 1] + 6)))+
-    
-    
-    scale_x_discrete(labels=c(paste0(btw2017$k_vname[btw2017$wkr_nr2017 == i & btw2017$party == "FDP"], " ", btw2017$k_nname[btw2017$wkr_nr2017 == i & btw2017$party == "FDP"], " (FDP) "), 
-                              paste0(btw2017$k_vname[btw2017$wkr_nr2017 == i & btw2017$party == "PDS"], " ", btw2017$k_nname[btw2017$wkr_nr2017 == i & btw2017$party == "PDS"], " (Linke) "), 
-                              paste0(btw2017$k_vname[btw2017$wkr_nr2017 == i & btw2017$party == "GRU"], " ", btw2017$k_nname[btw2017$wkr_nr2017 == i & btw2017$party == "GRU"], " (Grüne) "), 
-                              paste0(btw2017$k_vname[btw2017$wkr_nr2017 == i & btw2017$party == "SPD"], " ", btw2017$k_nname[btw2017$wkr_nr2017 == i & btw2017$party == "SPD"], " (SPD) "), 
-                              paste0(btw2017$k_vname[btw2017$wkr_nr2017 == i & btw2017$party == "CDU"], " ", btw2017$k_nname[btw2017$wkr_nr2017 == i & btw2017$party == "CDU"], " (CDU) ")))
-
-dev.off()
