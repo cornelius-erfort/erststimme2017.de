@@ -3,19 +3,16 @@
 ### HU Seminar SoSe 2017         ###
 ####################################
 
-setwd("//Users/cornelius/erststimme2017.de/R")
-
-
 ### Requierements ------------------
-source("Roman/packages.r")
-source("Roman/functions.r")
+source("packages.r")
+source("functions.r")
 
 
 
 ### Data Manipulation --------------
 
 # Import
-df <- read.csv2("Roman/data/kandidatinnen_90_17_long.csv",
+df <- read.csv2("data/kandidatinnen_90_17_long.csv",
                  sep = ";", stringsAsFactors = FALSE)
 
 # Setting some missing party and candidate inc
@@ -40,7 +37,7 @@ df <- merge(df, election_years_df, by = c("year"), all.x = TRUE)
 
 
 # Add BTW results
-btw <- read.csv2("Roman/data/btw_zweit.csv",
+btw <- read.csv2("data/btw_zweit.csv",
                  sep = ";", stringsAsFactors = FALSE)
 df <- merge(df, btw, by = c("year", "party"), all.x = TRUE)
 
@@ -67,7 +64,7 @@ df <- arrange(df, wkr_nr2017, party, year)
 
 
 # Save
-save(df, file = "Roman/data/uniform_data_complete.RData")
+save(df, file = "data/uniform_data_complete.RData")
 
 
 # Order Data
@@ -92,7 +89,7 @@ btw_data %>% filter(year == 2017) -> btw2017
 
 
 # save
-save(btw0513, file = "Roman/data/btw0513.RData")
+save(btw0513, file = "data/btw0513.RData")
 
 
 # Restrict sample to the two most competitive candidates
@@ -103,7 +100,7 @@ btw0513_2k <- arrange(btw0513_2k, year, wkr_nr2017, party)
 
 
 # save
-save(btw0513_2k, file = "Roman/data/btw0513_2k.RData")
+save(btw0513_2k, file = "data/btw0513_2k.RData")
 
 
 
@@ -231,7 +228,7 @@ btw2017 <- btw2017.expanded
 btw2017$k_vname[btw2017$k_idname == "kretschmer_michael"] <- "Michael"
 
 # Save forecast Data as btw17_forecast
-save(btw2017, file = "Roman/data/btw17_forecast.RData")
+save(btw2017, file = "data/btw17_forecast.RData")
 
 
 
