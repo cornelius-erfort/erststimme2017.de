@@ -8,9 +8,9 @@ Hier tauschen wir Daten zu Wahlergebnissen und Kandidaten, sowie zu anderen Bere
 
 Für die kommende Bundestagswahl am 24. September 2017 liefert unser Modell vom 19. September 2017 die folgende Vorhersage für den Erstimmenanteil der einzelnen Parteien auf Wahlkreisebene:
 
-![Preview render](https://github.com/cornelius-erfort/erststimme2017.de/blob/master/map_germany.png)
+![Preview render](https://github.com/cornelius-erfort/erststimme2017.de/blob/master/images/map_germany.png)
 
-<img src="https://github.com/cornelius-erfort/erststimme2017.de/blob/master/seatsummary.png" width="50%">
+<img src="https://github.com/cornelius-erfort/erststimme2017.de/blob/master/images/seatsummary.png" width="50%">
 
 Wahlkreis-Shapefile: © Der Bundeswahlleiter, Statistisches Bundesamt, Wiesbaden 2016,
 Wahlkreiskarte für die Wahl zum 19. Deutschen Bundestag
