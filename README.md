@@ -10,7 +10,7 @@ Für die kommende Bundestagswahl am 24. September 2017 liefert unser Modell vom 
 
 ![Preview render](https://github.com/cornelius-erfort/erststimme2017.de/blob/master/map_germany.png)
 
-![Preview render](https://github.com/cornelius-erfort/erststimme2017.de/blob/master/seatsummary.png)
+![Preview render](https://github.com/cornelius-erfort/erststimme2017.de/blob/master/seatsummary.png | width=50)
 
 Wahlkreis-Shapefile: © Der Bundeswahlleiter, Statistisches Bundesamt, Wiesbaden 2016,
 Wahlkreiskarte für die Wahl zum 19. Deutschen Bundestag
