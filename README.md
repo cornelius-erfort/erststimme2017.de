@@ -16,7 +16,7 @@ Wahlkreis-Shapefile: © Der Bundeswahlleiter, Statistisches Bundesamt, Wiesbaden
 Wahlkreiskarte für die Wahl zum 19. Deutschen Bundestag
 Grundlage der Geoinformationen © Geobasis-DE / BKG (2016)
 
-Unser Modell bezieht sich hierbei auf die Prognose des Zweistimmenanteils der Parteien auf Bundesebene von [zweitstimme.org](http://www.zweitstimme.org) vom 19. September 2017 (CDU/CSU 36,3%, SPD 23,0%, Die Linke 9,6%, Bündnis 90/Die Grünen 7,8%, FDP 9,1%).
+Unser Modell bezieht sich hierbei auf die Prognose des Zweistimmenanteils der Parteien auf Bundesebene von [zweitstimme.org](http://zweitstimme.org/20170918_2_blog.html) vom 19. September 2017 (CDU/CSU 36,3%, SPD 23,0%, Die Linke 9,6%, Bündnis 90/Die Grünen 7,8%, FDP 9,1%).
 
 [Hier](http://galeriasdelsa.com/erststimme/#bundeslaender) können Sie sich die vorhergesagten Erstimmenergebnisse für die kommende Bundestagswahl (sowie die Ergebnisse der vergangenen Wahl) für alle 299 Wahlkreise anzeigen lassen. Diese Werte sind jedoch keineswegs sicher. Die dargestellten Konfidenzintervalle geben für jeden Kandidaten an in welchem Bereich wir das tatsächliche Erstimmenergebnis mit 83% Wahrscheinlichkeit vermuten.
 
